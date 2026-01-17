@@ -4,38 +4,109 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>VASPRATO | Venta online al detalle por canales digitales</title>
-<meta name="description" content="VASPRATO vende al detalle por canales digitales. Colaboramos con marcas y proveedores para llevar productos a clientes finales en marketplaces y venta online. Contacto: contacto@vasprato.com">
+
+  <meta name="description" content="VASPRATO vende al detalle por canales digitales. Colaboramos con marcas y proveedores para llevar productos a clientes finales en marketplaces y venta online. Contacto: contacto@vasprato.com">
+  <meta name="theme-color" content="#0b0b0b">
+
+  <!-- FAVICON (asegúrate de tener estos archivos en /public/assets/) -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png?v=1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png?v=1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png?v=1">
+
+  <!-- Social preview -->
+  <meta property="og:title" content="VASPRATO | Venta online al detalle por canales digitales">
+  <meta property="og:description" content="Colaboramos con marcas y proveedores para llevar productos a clientes finales en marketplaces y venta online.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="/assets/og-image.png?v=1">
+
   <style>
-    :root{--bg:#0b0b0b;--card:#111;--text:#f3f3f3;--muted:#b8b8b8;--line:#222;--btn:#fff;--btnText:#111}
-    *{box-sizing:border-box} body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;background:linear-gradient(180deg,#0b0b0b,#070707);color:var(--text)}
+    :root{
+      --bg:#0b0b0b;
+      --card:#111;
+      --text:#f3f3f3;
+      --muted:#b8b8b8;
+      --line:#222;
+      --btn:#fff;
+      --btnText:#111;
+      --focus:#7c3aed;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
+      background:linear-gradient(180deg,#0b0b0b,#070707);
+      color:var(--text)
+    }
+    a{color:inherit}
+    a:focus-visible,button:focus-visible{
+      outline:2px solid var(--focus);
+      outline-offset:3px;
+      border-radius:10px;
+    }
+
     .wrap{max-width:1050px;margin:0 auto;padding:38px 18px 70px}
     header{display:flex;align-items:center;justify-content:space-between;gap:16px}
-    .brand{display:flex;align-items:center;gap:12px}
-    .brand img{height:44px;object-fit:contain}
-    .pill{border:1px solid var(--line);padding:8px 12px;border-radius:999px;color:var(--muted);font-size:13px}
+
+    .brand{display:flex;align-items:center;gap:12px;min-width:0}
+    /* LOGO: caché control + mejor encaje visual en fondo oscuro */
+    .brand img{
+      height:38px;
+      width:auto;
+      object-fit:contain;
+      display:block;
+      padding:6px 10px;
+      background:rgba(255,255,255,.94); /* quita esto si tu logo ya es transparente */
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:10px;
+    }
+
+    .pill{border:1px solid var(--line);padding:8px 12px;border-radius:999px;color:var(--muted);font-size:13px;white-space:nowrap}
     .hero{margin-top:30px;display:grid;grid-template-columns:1.25fr .75fr;gap:18px}
     .card{background:rgba(17,17,17,.75);border:1px solid var(--line);border-radius:18px;padding:22px;backdrop-filter: blur(8px)}
     h1{margin:0 0 10px;font-size:40px;line-height:1.1}
     p{margin:10px 0;color:var(--muted);font-size:16px;line-height:1.6}
     .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border-radius:12px;padding:12px 16px;text-decoration:none;font-weight:600}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      border-radius:12px;padding:12px 16px;text-decoration:none;font-weight:600;
+      transition:transform .05s ease, opacity .15s ease, border-color .15s ease;
+    }
+    .btn:hover{opacity:.95}
+    .btn:active{transform:translateY(1px)}
     .btn.primary{background:var(--btn);color:var(--btnText)}
     .btn.ghost{border:1px solid var(--line);color:var(--text)}
+
     .grid{margin-top:18px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
     .mini{padding:14px;border-radius:14px;border:1px solid var(--line);background:rgba(10,10,10,.5)}
     .mini b{display:block;margin-bottom:6px}
     footer{margin-top:22px;color:var(--muted);font-size:13px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
     .sep{height:1px;background:var(--line);margin:18px 0}
-    @media (max-width:900px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:1fr}}
+
+    /* Links dentro de cards */
+    .card a{
+      color:#fff;
+      text-decoration:underline;
+      text-underline-offset:3px;
+    }
+
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr}
+      h1{font-size:34px}
+      .brand img{height:34px}
+    }
   </style>
 </head>
 <body>
   <div class="wrap">
     <header>
       <div class="brand">
-        <img src="/assets/logo.png" alt="VASPRATO" height="22" style="vertical-align:middle;">
+        <!-- Importante: añade ?v=1 para evitar caché cuando cambies el logo -->
+        <img src="/assets/logo.png?v=1" alt="VASPRATO">
         <div class="pill">Business Online</div>
       </div>
+
       <a class="btn ghost" href="mailto:contacto@vasprato.com?subject=Alta%20como%20proveedor%20-%20VASPRATO">Contacto</a>
     </header>
 
@@ -49,9 +120,10 @@
 
         <div class="cta">
           <a class="btn primary"
-   href="mailto:contacto@vasprato.com?subject=Alta%20como%20proveedor%20-%20VASPRATO&body=Hola%20equipo%20VASPRATO,%0D%0A%0D%0ASomos%20la%20marca:%20%0D%0AWeb:%20%0D%0ACat%C3%A1logo:%20%0D%0ATarifa:%20%0D%0ACondiciones%20de%20venta:%20%0D%0APersona%20de%20contacto:%20%0D%0ATel%C3%A9fono:%20%0D%0A%0D%0AGracias.">
-  Quiero ser proveedor
-</a>         
+             href="mailto:contacto@vasprato.com?subject=Alta%20como%20proveedor%20-%20VASPRATO&body=Hola%20equipo%20VASPRATO,%0D%0A%0D%0ASomos%20la%20marca:%20%0D%0AWeb:%20%0D%0ACat%C3%A1logo:%20%0D%0ATarifa:%20%0D%0ACondiciones%20de%20venta:%20%0D%0APersona%20de%20contacto:%20%0D%0ATel%C3%A9fono:%20%0D%0A%0D%0AGracias.">
+            Quiero ser proveedor
+          </a>
+
           <a class="btn ghost" href="#como-trabajamos">Cómo trabajamos</a>
         </div>
 
@@ -76,9 +148,17 @@
       <div class="card">
         <h2 style="margin:0 0 10px;font-size:18px">Datos de contacto</h2>
         <p style="margin:0 0 12px">Para propuestas comerciales y tarifas:</p>
-        <p style="margin:0"><b>Email:</b> <a style="color:#fff" href="mailto:contacto@vasprato.com">contacto@vasprato.com</a></p>
-        <p style="margin:6px 0 0"><b>Tel:</b> <a href="https://wa.me/34672743950" target="_blank" rel="noopener">WhatsApp</a>
-</p>
+
+        <p style="margin:0">
+          <b>Email:</b>
+          <a href="mailto:contacto@vasprato.com">contacto@vasprato.com</a>
+        </p>
+
+        <p style="margin:6px 0 0">
+          <b>Tel:</b>
+          <a href="https://wa.me/34672743950" target="_blank" rel="noopener">WhatsApp</a>
+        </p>
+
         <div class="sep"></div>
 
         <p style="margin:0">Valores: elegancia, honestidad, amor y comunicación.</p>
