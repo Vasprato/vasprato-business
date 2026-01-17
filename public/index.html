@@ -3,10 +3,15 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+
   <title>VASPRATO | Comercio Digital Profesional</title>
-  <meta name="description" content="Soluciones de comercio digital B2B. Conectamos marcas con canales de venta online. Operación integral en marketplaces y ecommerce.">
+  <meta name="description" content="Soluciones de comercio digital B2B. Conectamos marcas con canales de venta online. Operación integral en marketplaces y ecommerce." />
   <meta name="theme-color" content="#0a0a0a" />
-  
+
+  <!-- ✅ FAVICON (coloca tu archivo en: public/favicon.png) -->
+  <link rel="icon" href="/favicon.png" type="image/png" />
+  <link rel="shortcut icon" href="/favicon.png" type="image/png" />
+
   <style>
     :root{
       --bg-primary:#0a0a0a;
@@ -24,9 +29,9 @@
       --warning-border:rgba(255,193,7,.2);
       --gradient-subtle:linear-gradient(180deg,rgba(255,255,255,.03),transparent);
     }
-    
+
     *{box-sizing:border-box;margin:0;padding:0}
-    
+
     body{
       font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
       background:var(--bg-primary);
@@ -35,14 +40,9 @@
       -webkit-font-smoothing:antialiased;
       min-height:100vh;
     }
-    
-    .container{
-      max-width:1200px;
-      margin:0 auto;
-      padding:0 24px;
-    }
-    
-    /* HEADER */
+
+    .container{max-width:1200px;margin:0 auto;padding:0 24px}
+
     header{
       padding:32px 0;
       border-bottom:1px solid var(--border);
@@ -52,413 +52,134 @@
       backdrop-filter:blur(12px);
       z-index:100;
     }
-    
-    nav{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:24px;
-    }
-    
-    .logo-wrapper{
-      display:flex;
-      align-items:center;
-      gap:16px;
-    }
-    
-    .logo{
-      font-size:24px;
-      font-weight:700;
-      letter-spacing:-.02em;
-      color:var(--text-primary);
-      text-decoration:none;
-    }
-    
+
+    nav{display:flex;align-items:center;justify-content:space-between;gap:24px}
+
+    .logo-wrapper{display:flex;align-items:center;gap:16px}
+
+    .logo-link{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--text-primary)}
+    .logo-img{height:34px;object-fit:contain;display:block}
     .badge{
-      display:inline-flex;
-      align-items:center;
-      gap:6px;
-      padding:6px 12px;
-      border-radius:20px;
-      border:1px solid var(--border);
-      font-size:12px;
-      font-weight:500;
-      color:var(--text-secondary);
-      background:var(--surface);
+      display:inline-flex;align-items:center;gap:6px;
+      padding:6px 12px;border-radius:20px;border:1px solid var(--border);
+      font-size:12px;font-weight:500;color:var(--text-secondary);background:var(--surface)
     }
-    
-    .nav-links{
-      display:flex;
-      gap:8px;
-      flex-wrap:wrap;
-    }
-    
+
+    .nav-links{display:flex;gap:8px;flex-wrap:wrap}
+
     .nav-link{
-      padding:10px 18px;
-      border-radius:8px;
-      text-decoration:none;
-      color:var(--text-secondary);
-      font-weight:500;
-      font-size:14px;
-      transition:all .2s;
-      border:1px solid transparent;
+      padding:10px 18px;border-radius:8px;text-decoration:none;
+      color:var(--text-secondary);font-weight:500;font-size:14px;
+      transition:all .2s;border:1px solid transparent;
     }
-    
-    .nav-link:hover{
-      color:var(--text-primary);
-      background:var(--surface);
-      border-color:var(--border);
-    }
-    
-    .nav-link.primary{
-      background:var(--accent);
-      color:var(--accent-text);
-      border-color:var(--accent);
-    }
-    
-    .nav-link.primary:hover{
-      background:rgba(255,255,255,.9);
-    }
-    
-    /* HERO */
-    .hero{
-      padding:80px 0 60px;
-    }
-    
-    .hero-grid{
-      display:grid;
-      grid-template-columns:1.4fr 1fr;
-      gap:40px;
-      align-items:start;
-    }
-    
+
+    .nav-link:hover{color:var(--text-primary);background:var(--surface);border-color:var(--border)}
+    .nav-link.primary{background:var(--accent);color:var(--accent-text);border-color:var(--accent)}
+    .nav-link.primary:hover{background:rgba(255,255,255,.9)}
+
+    .hero{padding:80px 0 60px}
+    .hero-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:start}
+
     .hero-content h1{
-      font-size:56px;
-      font-weight:700;
-      line-height:1.1;
-      letter-spacing:-.03em;
-      margin-bottom:24px;
+      font-size:56px;font-weight:700;line-height:1.1;letter-spacing:-.03em;margin-bottom:24px;
       background:linear-gradient(135deg,#fff 0%,#a0a0a0 100%);
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-      background-clip:text;
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
     }
-    
-    .hero-content .subtitle{
-      font-size:20px;
-      color:var(--text-secondary);
-      margin-bottom:32px;
-      line-height:1.6;
-    }
-    
-    .cta-group{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      margin-bottom:48px;
-    }
-    
+
+    .hero-content .subtitle{font-size:20px;color:var(--text-secondary);margin-bottom:32px;line-height:1.6}
+
+    .cta-group{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:48px}
+
     .btn{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:14px 24px;
-      border-radius:10px;
-      text-decoration:none;
-      font-weight:600;
-      font-size:15px;
-      transition:all .2s;
-      cursor:pointer;
-      border:none;
+      display:inline-flex;align-items:center;gap:8px;padding:14px 24px;border-radius:10px;
+      text-decoration:none;font-weight:600;font-size:15px;transition:all .2s;cursor:pointer;border:none;
     }
-    
-    .btn-primary{
-      background:var(--accent);
-      color:var(--accent-text);
-    }
-    
-    .btn-primary:hover{
-      transform:translateY(-1px);
-      box-shadow:0 8px 24px rgba(255,255,255,.15);
-    }
-    
-    .btn-secondary{
-      background:var(--surface-elevated);
-      color:var(--text-primary);
-      border:1px solid var(--border);
-    }
-    
-    .btn-secondary:hover{
-      border-color:var(--border-hover);
-      background:var(--surface);
-    }
-    
-    /* CARDS */
+    .btn-primary{background:var(--accent);color:var(--accent-text)}
+    .btn-primary:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(255,255,255,.15)}
+    .btn-secondary{background:var(--surface-elevated);color:var(--text-primary);border:1px solid var(--border)}
+    .btn-secondary:hover{border-color:var(--border-hover);background:var(--surface)}
+
     .card{
-      background:var(--surface);
-      border:1px solid var(--border);
-      border-radius:16px;
-      padding:32px;
-      position:relative;
-      overflow:hidden;
+      background:var(--surface);border:1px solid var(--border);border-radius:16px;
+      padding:32px;position:relative;overflow:hidden
     }
-    
-    .card::before{
-      content:'';
-      position:absolute;
-      top:0;
-      left:0;
-      right:0;
-      height:1px;
-      background:var(--gradient-subtle);
-    }
-    
-    .card-header{
-      margin-bottom:20px;
-    }
-    
-    .card-title{
-      font-size:18px;
-      font-weight:600;
-      margin-bottom:8px;
-      color:var(--text-primary);
-    }
-    
-    .card-subtitle{
-      color:var(--text-secondary);
-      font-size:14px;
-    }
-    
-    .info-row{
-      display:flex;
-      align-items:baseline;
-      gap:12px;
-      margin:12px 0;
-      padding:12px 0;
-      border-bottom:1px solid var(--border);
-    }
-    
-    .info-row:last-child{
-      border-bottom:none;
-    }
-    
+    .card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:var(--gradient-subtle)}
+    .card-header{margin-bottom:20px}
+    .card-title{font-size:18px;font-weight:600;margin-bottom:8px}
+    .card-subtitle{color:var(--text-secondary);font-size:14px}
+
+    .info-row{display:flex;align-items:baseline;gap:12px;margin:12px 0;padding:12px 0;border-bottom:1px solid var(--border)}
+    .info-row:last-child{border-bottom:none}
     .info-label{
-      font-weight:600;
-      color:var(--text-secondary);
-      font-size:13px;
-      min-width:60px;
-      text-transform:uppercase;
-      letter-spacing:.03em;
+      font-weight:600;color:var(--text-secondary);font-size:13px;min-width:70px;
+      text-transform:uppercase;letter-spacing:.03em
     }
-    
-    .info-value{
-      color:var(--text-primary);
-      font-size:15px;
-    }
-    
-    .info-value a{
-      color:var(--text-primary);
-      text-decoration:none;
-      border-bottom:1px solid var(--border);
-      transition:border-color .2s;
-    }
-    
-    .info-value a:hover{
-      border-color:var(--text-primary);
-    }
-    
-    .divider{
-      height:1px;
-      background:var(--border);
-      margin:24px 0;
-    }
-    
-    /* SPOTLIGHT */
+    .info-value{color:var(--text-primary);font-size:15px}
+    .info-value a{color:var(--text-primary);text-decoration:none;border-bottom:1px solid var(--border);transition:border-color .2s}
+    .info-value a:hover{border-color:var(--text-primary)}
+
+    .divider{height:1px;background:var(--border);margin:24px 0}
+
     .spotlight{
-      margin-top:32px;
-      padding:24px;
-      border-radius:14px;
-      border:1px solid var(--border-hover);
+      margin-top:32px;padding:24px;border-radius:14px;border:1px solid var(--border-hover);
       background:var(--gradient-subtle),var(--surface-elevated);
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:20px;
-      flex-wrap:wrap;
+      display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap
     }
-    
     .spotlight-badge{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:6px 12px;
-      background:rgba(0,0,0,.4);
-      border:1px solid var(--border);
-      border-radius:20px;
-      font-size:12px;
-      font-weight:500;
-      margin-bottom:12px;
+      display:inline-flex;align-items:center;gap:8px;padding:6px 12px;
+      background:rgba(0,0,0,.4);border:1px solid var(--border);border-radius:20px;
+      font-size:12px;font-weight:500;margin-bottom:12px
     }
-    
-    .spotlight h3{
-      font-size:18px;
-      margin-bottom:8px;
-    }
-    
-    .spotlight p{
-      color:var(--text-secondary);
-      font-size:14px;
-      margin:0;
-    }
-    
-    /* FEATURES GRID */
-    .features{
-      padding:60px 0;
-    }
-    
-    .section-title{
-      font-size:32px;
-      font-weight:700;
-      margin-bottom:40px;
-      text-align:center;
-      letter-spacing:-.02em;
-    }
-    
-    .features-grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:20px;
-    }
-    
+    .spotlight h3{font-size:18px;margin-bottom:8px}
+    .spotlight p{color:var(--text-secondary);font-size:14px;margin:0}
+
+    .features{padding:60px 0}
+    .section-title{font-size:32px;font-weight:700;margin-bottom:40px;text-align:center;letter-spacing:-.02em}
+
+    .features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+
     .feature-card{
-      background:var(--surface);
-      border:1px solid var(--border);
-      border-radius:14px;
-      padding:24px;
-      transition:all .3s;
+      background:var(--surface);border:1px solid var(--border);border-radius:14px;
+      padding:24px;transition:all .3s
     }
-    
-    .feature-card:hover{
-      border-color:var(--border-hover);
-      transform:translateY(-2px);
-    }
-    
-    .feature-icon{
-      font-size:32px;
-      margin-bottom:16px;
-      display:block;
-    }
-    
-    .feature-title{
-      font-size:16px;
-      font-weight:600;
-      margin-bottom:8px;
-    }
-    
-    .feature-desc{
-      color:var(--text-secondary);
-      font-size:14px;
-      line-height:1.5;
-    }
-    
-    /* NOTICE */
+    .feature-card:hover{border-color:var(--border-hover);transform:translateY(-2px)}
+    .feature-icon{font-size:32px;margin-bottom:16px;display:block}
+    .feature-title{font-size:16px;font-weight:600;margin-bottom:8px}
+    .feature-desc{color:var(--text-secondary);font-size:14px;line-height:1.5}
+
     .notice{
-      display:none;
-      margin-top:24px;
-      padding:16px 20px;
-      border-radius:12px;
-      border:1px solid var(--warning-border);
-      background:var(--warning-bg);
-      font-size:14px;
+      display:none;margin-top:24px;padding:16px 20px;border-radius:12px;
+      border:1px solid var(--warning-border);background:var(--warning-bg);font-size:14px
     }
-    
-    .notice strong{
-      display:block;
-      margin-bottom:6px;
-    }
-    
-    .notice a{
-      color:var(--text-primary);
-      font-weight:600;
-    }
-    
-    /* FOOTER */
-    footer{
-      margin-top:80px;
-      padding:40px 0;
-      border-top:1px solid var(--border);
-    }
-    
+    .notice strong{display:block;margin-bottom:6px}
+    .notice a{color:var(--text-primary);font-weight:600}
+
+    footer{margin-top:80px;padding:40px 0;border-top:1px solid var(--border)}
     .footer-content{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:20px;
-      flex-wrap:wrap;
-      color:var(--text-tertiary);
-      font-size:13px;
+      display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;
+      color:var(--text-tertiary);font-size:13px
     }
-    
+
     .values{
-      margin-top:32px;
-      padding:20px;
-      background:var(--surface);
-      border:1px solid var(--border);
-      border-radius:12px;
-      font-size:14px;
-      color:var(--text-secondary);
+      margin-top:32px;padding:20px;background:var(--surface);border:1px solid var(--border);
+      border-radius:12px;font-size:14px;color:var(--text-secondary)
     }
-    
-    .values strong{
-      color:var(--text-primary);
-    }
-    
-    /* RESPONSIVE */
+    .values strong{color:var(--text-primary)}
+
     @media (max-width:900px){
-      .hero-grid{
-        grid-template-columns:1fr;
-        gap:32px;
-      }
-      
-      .hero-content h1{
-        font-size:40px;
-      }
-      
-      .features-grid{
-        grid-template-columns:1fr;
-      }
-      
-      .nav-links{
-        width:100%;
-        justify-content:flex-end;
-      }
+      .hero-grid{grid-template-columns:1fr;gap:32px}
+      .hero-content h1{font-size:40px}
+      .features-grid{grid-template-columns:1fr}
+      .nav-links{width:100%;justify-content:flex-end}
     }
-    
+
     @media (max-width:600px){
-      .container{
-        padding:0 16px;
-      }
-      
-      header{
-        padding:20px 0;
-      }
-      
-      .hero{
-        padding:40px 0 30px;
-      }
-      
-      .hero-content h1{
-        font-size:32px;
-      }
-      
-      .cta-group{
-        flex-direction:column;
-      }
-      
-      .btn{
-        width:100%;
-        justify-content:center;
-      }
+      .container{padding:0 16px}
+      header{padding:20px 0}
+      .hero{padding:40px 0 30px}
+      .hero-content h1{font-size:32px}
+      .cta-group{flex-direction:column}
+      .btn{width:100%;justify-content:center}
     }
   </style>
 </head>
@@ -468,10 +189,13 @@
     <div class="container">
       <nav>
         <div class="logo-wrapper">
-          <a href="/" class="logo">VASPRATO</a>
+          <!-- ✅ Logo desde /assets/logo.png -->
+          <a href="/" class="logo-link" aria-label="VASPRATO">
+            <img class="logo-img" src="/assets/logo.png" alt="VASPRATO" />
+          </a>
           <span class="badge">B2B Digital</span>
         </div>
-        
+
         <div class="nav-links">
           <a href="https://tienda.vasprato.com/" target="_blank" rel="noopener" class="nav-link">Tienda</a>
           <a href="mailto:contacto@vasprato.com?subject=Consulta%20comercial" class="nav-link primary">Contacto</a>
@@ -487,12 +211,13 @@
           <div class="hero-content">
             <h1>Comercio digital profesional para marcas exigentes</h1>
             <p class="subtitle">
-              Conectamos productos de calidad con canales de venta digitales. 
+              Conectamos productos de calidad con canales de venta digitales.
               Operación integral en marketplaces y ecommerce con gestión end-to-end.
             </p>
-            
+
             <div class="cta-group">
-              <a href="mailto:contacto@vasprato.com?subject=Alta%20como%20proveedor&body=Hola%20equipo%20VASPRATO,%0D%0A%0D%0AMarca:%20%0D%0AWeb:%20%0D%0ACatálogo:%20%0D%0ATarifa:%20%0D%0ACondiciones:%20%0D%0AContacto:%20%0D%0ATel:%20" class="btn btn-primary">
+              <a href="mailto:contacto@vasprato.com?subject=Alta%20como%20proveedor&body=Hola%20equipo%20VASPRATO,%0D%0A%0D%0AMarca:%20%0D%0AWeb:%20%0D%0ACatálogo:%20%0D%0ATarifa:%20%0D%0ACondiciones:%20%0D%0AContacto:%20%0D%0ATel:%20"
+                 class="btn btn-primary">
                 <span>⚡</span> Convertirse en proveedor
               </a>
               <a href="#operativa" class="btn btn-secondary">Ver cómo trabajamos</a>
@@ -509,7 +234,7 @@
 
             <div id="storeNotice" class="notice">
               <strong>⚠️ Tienda en configuración</strong>
-              Si el subdominio aún no responde, puede estar propagándose. 
+              Si el subdominio aún no responde, puede estar propagándose.
               Escríbenos a <a href="mailto:contacto@vasprato.com">contacto@vasprato.com</a>.
             </div>
           </div>
@@ -559,7 +284,7 @@
     <section class="features" id="operativa">
       <div class="container">
         <h2 class="section-title">Modelo de operación</h2>
-        
+
         <div class="features-grid">
           <div class="feature-card">
             <span class="feature-icon">🎯</span>
@@ -601,6 +326,7 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
+    // Si la tienda aún no existe (DNS), muestra aviso
     (function checkStore(){
       const notice = document.getElementById('storeNotice');
       const url = 'https://tienda.vasprato.com/';
