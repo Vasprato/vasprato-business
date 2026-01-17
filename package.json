@@ -1,0 +1,18 @@
+{
+  "name": "vasprato-business",
+  "version": "1.0.0",
+  "private": true,
+  "description": "VASPRATO - Web corporativa para proveedores (Node.js + Express)",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "compression": "^1.7.4",
+    "express": "^4.19.2",
+    "helmet": "^7.1.0"
+  }
+}
