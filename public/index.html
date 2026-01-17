@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>VASPRATO | Business Online</title>
+  <meta name="description" content="VASPRATO: ventas al detalle por canales digitales (Amazon y marketplaces). Colaboración con marcas y proveedores." />
+  <style>
+    :root{--bg:#0b0b0b;--card:#111;--text:#f3f3f3;--muted:#b8b8b8;--line:#222;--btn:#fff;--btnText:#111}
+    *{box-sizing:border-box} body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;background:linear-gradient(180deg,#0b0b0b,#070707);color:var(--text)}
+    .wrap{max-width:1050px;margin:0 auto;padding:38px 18px 70px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand img{height:44px;object-fit:contain}
+    .pill{border:1px solid var(--line);padding:8px 12px;border-radius:999px;color:var(--muted);font-size:13px}
+    .hero{margin-top:30px;display:grid;grid-template-columns:1.25fr .75fr;gap:18px}
+    .card{background:rgba(17,17,17,.75);border:1px solid var(--line);border-radius:18px;padding:22px;backdrop-filter: blur(8px)}
+    h1{margin:0 0 10px;font-size:40px;line-height:1.1}
+    p{margin:10px 0;color:var(--muted);font-size:16px;line-height:1.6}
+    .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border-radius:12px;padding:12px 16px;text-decoration:none;font-weight:600}
+    .btn.primary{background:var(--btn);color:var(--btnText)}
+    .btn.ghost{border:1px solid var(--line);color:var(--text)}
+    .grid{margin-top:18px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .mini{padding:14px;border-radius:14px;border:1px solid var(--line);background:rgba(10,10,10,.5)}
+    .mini b{display:block;margin-bottom:6px}
+    footer{margin-top:22px;color:var(--muted);font-size:13px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+    .sep{height:1px;background:var(--line);margin:18px 0}
+    @media (max-width:900px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <img src="/assets/logo.jpg" alt="VASPRATO" />
+        <div class="pill">Business Online</div>
+      </div>
+      <a class="btn ghost" href="mailto:contacto@vasprato.com?subject=Alta%20como%20proveedor%20-%20VASPRATO">Contacto</a>
+    </header>
+
+    <section class="hero">
+      <div class="card">
+        <h1>Vendemos al detalle por canales digitales.</h1>
+        <p>
+          En VASPRATO colaboramos con marcas y proveedores para llevar sus productos a clientes finales
+          a través de marketplaces y canales de venta online (como Amazon y otros).
+        </p>
+
+        <div class="cta">
+          <a class="btn primary" href="mailto:contacto@vasprato.com?subject=Alta%20como%20proveedor%20-%20VASPRATO&body=Hola%20equipo%20VASPRATO%2C%0D%0A%0D%0AMe%20gustar%C3%ADa%20compartir%20tarifa%20y%20condiciones%20para%20colaborar.%0D%0A%0D%0AEmpresa%3A%0D%0AWeb%3A%0D%0ACat%C3%A1logo%2FLista%20de%20precios%3A%0D%0ACondiciones%20de%20venta%20y%20env%C3%ADo%3A%0D%0A%0D%0AGracias%2C">Quiero ser proveedor</a>
+          <a class="btn ghost" href="#como-trabajamos">Cómo trabajamos</a>
+        </div>
+
+        <div class="sep"></div>
+
+        <div class="grid" id="como-trabajamos">
+          <div class="mini">
+            <b>Selección</b>
+            <span>Elegimos productos con demanda real y encaje de marca.</span>
+          </div>
+          <div class="mini">
+            <b>Gestión digital</b>
+            <span>Publicación, contenido, pricing y atención al cliente.</span>
+          </div>
+          <div class="mini">
+            <b>Operación</b>
+            <span>Logística, devoluciones y optimización continua.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2 style="margin:0 0 10px;font-size:18px">Datos de contacto</h2>
+        <p style="margin:0 0 12px">Para propuestas comerciales y tarifas:</p>
+        <p style="margin:0"><b>Email:</b> <a style="color:#fff" href="mailto:contacto@vasprato.com">contacto@vasprato.com</a></p>
+        <p style="margin:6px 0 0"><b>Tel:</b> <a style="color:#fff" href="tel:+34672743950">+34 672 743 950</a></p>
+
+        <div class="sep"></div>
+
+        <p style="margin:0">Valores: elegancia, honestidad, amor y comunicación.</p>
+        <p style="margin:10px 0 0;color:var(--muted)">*Web informativa. Próximamente más novedades.</p>
+      </div>
+    </section>
+
+    <footer>
+      <div>© <span id="y"></span> VASPRATO</div>
+      <div>Valencia · España</div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
