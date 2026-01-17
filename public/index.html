@@ -3,177 +3,615 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>VASPRATO | Venta online al detalle por canales digitales</title>
-
-  <meta name="description" content="VASPRATO vende al detalle por canales digitales. Colaboramos con marcas y proveedores para llevar productos a clientes finales en marketplaces y venta online. Contacto: contacto@vasprato.com">
-  <meta name="theme-color" content="#0b0b0b">
-
-  <!-- FAVICON (asegúrate de tener estos archivos en /public/assets/) -->
-  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png?v=1">
-  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png?v=1">
-  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png?v=1">
-
-  <!-- Social preview -->
-  <meta property="og:title" content="VASPRATO | Venta online al detalle por canales digitales">
-  <meta property="og:description" content="Colaboramos con marcas y proveedores para llevar productos a clientes finales en marketplaces y venta online.">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="/assets/og-image.png?v=1">
-
+  <title>VASPRATO | Comercio Digital Profesional</title>
+  <meta name="description" content="Soluciones de comercio digital B2B. Conectamos marcas con canales de venta online. Operación integral en marketplaces y ecommerce.">
+  <meta name="theme-color" content="#0a0a0a" />
+  
   <style>
     :root{
-      --bg:#0b0b0b;
-      --card:#111;
-      --text:#f3f3f3;
-      --muted:#b8b8b8;
-      --line:#222;
-      --btn:#fff;
-      --btnText:#111;
-      --focus:#7c3aed;
+      --bg-primary:#0a0a0a;
+      --bg-secondary:#0f0f0f;
+      --surface:#141414;
+      --surface-elevated:#1a1a1a;
+      --border:rgba(255,255,255,.06);
+      --border-hover:rgba(255,255,255,.12);
+      --text-primary:#fafafa;
+      --text-secondary:#a0a0a0;
+      --text-tertiary:#666;
+      --accent:#fff;
+      --accent-text:#0a0a0a;
+      --warning-bg:rgba(255,193,7,.05);
+      --warning-border:rgba(255,193,7,.2);
+      --gradient-subtle:linear-gradient(180deg,rgba(255,255,255,.03),transparent);
     }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
+    
+    *{box-sizing:border-box;margin:0;padding:0}
+    
     body{
-      margin:0;
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
-      background:linear-gradient(180deg,#0b0b0b,#070707);
-      color:var(--text)
+      font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+      background:var(--bg-primary);
+      color:var(--text-primary);
+      line-height:1.6;
+      -webkit-font-smoothing:antialiased;
+      min-height:100vh;
     }
-    a{color:inherit}
-    a:focus-visible,button:focus-visible{
-      outline:2px solid var(--focus);
-      outline-offset:3px;
-      border-radius:10px;
+    
+    .container{
+      max-width:1200px;
+      margin:0 auto;
+      padding:0 24px;
     }
-
-    .wrap{max-width:1050px;margin:0 auto;padding:38px 18px 70px}
-    header{display:flex;align-items:center;justify-content:space-between;gap:16px}
-
-    .brand{display:flex;align-items:center;gap:12px;min-width:0}
-    /* LOGO: caché control + mejor encaje visual en fondo oscuro */
-    .brand img{
-      height:38px;
-      width:auto;
-      object-fit:contain;
-      display:block;
-      padding:6px 10px;
-      background:rgba(255,255,255,.94); /* quita esto si tu logo ya es transparente */
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:10px;
+    
+    /* HEADER */
+    header{
+      padding:32px 0;
+      border-bottom:1px solid var(--border);
+      position:sticky;
+      top:0;
+      background:rgba(10,10,10,.85);
+      backdrop-filter:blur(12px);
+      z-index:100;
     }
-
-    .pill{border:1px solid var(--line);padding:8px 12px;border-radius:999px;color:var(--muted);font-size:13px;white-space:nowrap}
-    .hero{margin-top:30px;display:grid;grid-template-columns:1.25fr .75fr;gap:18px}
-    .card{background:rgba(17,17,17,.75);border:1px solid var(--line);border-radius:18px;padding:22px;backdrop-filter: blur(8px)}
-    h1{margin:0 0 10px;font-size:40px;line-height:1.1}
-    p{margin:10px 0;color:var(--muted);font-size:16px;line-height:1.6}
-    .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
+    
+    nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+    }
+    
+    .logo-wrapper{
+      display:flex;
+      align-items:center;
+      gap:16px;
+    }
+    
+    .logo{
+      font-size:24px;
+      font-weight:700;
+      letter-spacing:-.02em;
+      color:var(--text-primary);
+      text-decoration:none;
+    }
+    
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:6px 12px;
+      border-radius:20px;
+      border:1px solid var(--border);
+      font-size:12px;
+      font-weight:500;
+      color:var(--text-secondary);
+      background:var(--surface);
+    }
+    
+    .nav-links{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+    }
+    
+    .nav-link{
+      padding:10px 18px;
+      border-radius:8px;
+      text-decoration:none;
+      color:var(--text-secondary);
+      font-weight:500;
+      font-size:14px;
+      transition:all .2s;
+      border:1px solid transparent;
+    }
+    
+    .nav-link:hover{
+      color:var(--text-primary);
+      background:var(--surface);
+      border-color:var(--border);
+    }
+    
+    .nav-link.primary{
+      background:var(--accent);
+      color:var(--accent-text);
+      border-color:var(--accent);
+    }
+    
+    .nav-link.primary:hover{
+      background:rgba(255,255,255,.9);
+    }
+    
+    /* HERO */
+    .hero{
+      padding:80px 0 60px;
+    }
+    
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.4fr 1fr;
+      gap:40px;
+      align-items:start;
+    }
+    
+    .hero-content h1{
+      font-size:56px;
+      font-weight:700;
+      line-height:1.1;
+      letter-spacing:-.03em;
+      margin-bottom:24px;
+      background:linear-gradient(135deg,#fff 0%,#a0a0a0 100%);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      background-clip:text;
+    }
+    
+    .hero-content .subtitle{
+      font-size:20px;
+      color:var(--text-secondary);
+      margin-bottom:32px;
+      line-height:1.6;
+    }
+    
+    .cta-group{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-bottom:48px;
+    }
+    
     .btn{
-      display:inline-flex;align-items:center;justify-content:center;gap:10px;
-      border-radius:12px;padding:12px 16px;text-decoration:none;font-weight:600;
-      transition:transform .05s ease, opacity .15s ease, border-color .15s ease;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:14px 24px;
+      border-radius:10px;
+      text-decoration:none;
+      font-weight:600;
+      font-size:15px;
+      transition:all .2s;
+      cursor:pointer;
+      border:none;
     }
-    .btn:hover{opacity:.95}
-    .btn:active{transform:translateY(1px)}
-    .btn.primary{background:var(--btn);color:var(--btnText)}
-    .btn.ghost{border:1px solid var(--line);color:var(--text)}
-
-    .grid{margin-top:18px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-    .mini{padding:14px;border-radius:14px;border:1px solid var(--line);background:rgba(10,10,10,.5)}
-    .mini b{display:block;margin-bottom:6px}
-    footer{margin-top:22px;color:var(--muted);font-size:13px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
-    .sep{height:1px;background:var(--line);margin:18px 0}
-
-    /* Links dentro de cards */
-    .card a{
-      color:#fff;
-      text-decoration:underline;
-      text-underline-offset:3px;
+    
+    .btn-primary{
+      background:var(--accent);
+      color:var(--accent-text);
     }
-
+    
+    .btn-primary:hover{
+      transform:translateY(-1px);
+      box-shadow:0 8px 24px rgba(255,255,255,.15);
+    }
+    
+    .btn-secondary{
+      background:var(--surface-elevated);
+      color:var(--text-primary);
+      border:1px solid var(--border);
+    }
+    
+    .btn-secondary:hover{
+      border-color:var(--border-hover);
+      background:var(--surface);
+    }
+    
+    /* CARDS */
+    .card{
+      background:var(--surface);
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:32px;
+      position:relative;
+      overflow:hidden;
+    }
+    
+    .card::before{
+      content:'';
+      position:absolute;
+      top:0;
+      left:0;
+      right:0;
+      height:1px;
+      background:var(--gradient-subtle);
+    }
+    
+    .card-header{
+      margin-bottom:20px;
+    }
+    
+    .card-title{
+      font-size:18px;
+      font-weight:600;
+      margin-bottom:8px;
+      color:var(--text-primary);
+    }
+    
+    .card-subtitle{
+      color:var(--text-secondary);
+      font-size:14px;
+    }
+    
+    .info-row{
+      display:flex;
+      align-items:baseline;
+      gap:12px;
+      margin:12px 0;
+      padding:12px 0;
+      border-bottom:1px solid var(--border);
+    }
+    
+    .info-row:last-child{
+      border-bottom:none;
+    }
+    
+    .info-label{
+      font-weight:600;
+      color:var(--text-secondary);
+      font-size:13px;
+      min-width:60px;
+      text-transform:uppercase;
+      letter-spacing:.03em;
+    }
+    
+    .info-value{
+      color:var(--text-primary);
+      font-size:15px;
+    }
+    
+    .info-value a{
+      color:var(--text-primary);
+      text-decoration:none;
+      border-bottom:1px solid var(--border);
+      transition:border-color .2s;
+    }
+    
+    .info-value a:hover{
+      border-color:var(--text-primary);
+    }
+    
+    .divider{
+      height:1px;
+      background:var(--border);
+      margin:24px 0;
+    }
+    
+    /* SPOTLIGHT */
+    .spotlight{
+      margin-top:32px;
+      padding:24px;
+      border-radius:14px;
+      border:1px solid var(--border-hover);
+      background:var(--gradient-subtle),var(--surface-elevated);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+    
+    .spotlight-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:6px 12px;
+      background:rgba(0,0,0,.4);
+      border:1px solid var(--border);
+      border-radius:20px;
+      font-size:12px;
+      font-weight:500;
+      margin-bottom:12px;
+    }
+    
+    .spotlight h3{
+      font-size:18px;
+      margin-bottom:8px;
+    }
+    
+    .spotlight p{
+      color:var(--text-secondary);
+      font-size:14px;
+      margin:0;
+    }
+    
+    /* FEATURES GRID */
+    .features{
+      padding:60px 0;
+    }
+    
+    .section-title{
+      font-size:32px;
+      font-weight:700;
+      margin-bottom:40px;
+      text-align:center;
+      letter-spacing:-.02em;
+    }
+    
+    .features-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+    }
+    
+    .feature-card{
+      background:var(--surface);
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:24px;
+      transition:all .3s;
+    }
+    
+    .feature-card:hover{
+      border-color:var(--border-hover);
+      transform:translateY(-2px);
+    }
+    
+    .feature-icon{
+      font-size:32px;
+      margin-bottom:16px;
+      display:block;
+    }
+    
+    .feature-title{
+      font-size:16px;
+      font-weight:600;
+      margin-bottom:8px;
+    }
+    
+    .feature-desc{
+      color:var(--text-secondary);
+      font-size:14px;
+      line-height:1.5;
+    }
+    
+    /* NOTICE */
+    .notice{
+      display:none;
+      margin-top:24px;
+      padding:16px 20px;
+      border-radius:12px;
+      border:1px solid var(--warning-border);
+      background:var(--warning-bg);
+      font-size:14px;
+    }
+    
+    .notice strong{
+      display:block;
+      margin-bottom:6px;
+    }
+    
+    .notice a{
+      color:var(--text-primary);
+      font-weight:600;
+    }
+    
+    /* FOOTER */
+    footer{
+      margin-top:80px;
+      padding:40px 0;
+      border-top:1px solid var(--border);
+    }
+    
+    .footer-content{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+      flex-wrap:wrap;
+      color:var(--text-tertiary);
+      font-size:13px;
+    }
+    
+    .values{
+      margin-top:32px;
+      padding:20px;
+      background:var(--surface);
+      border:1px solid var(--border);
+      border-radius:12px;
+      font-size:14px;
+      color:var(--text-secondary);
+    }
+    
+    .values strong{
+      color:var(--text-primary);
+    }
+    
+    /* RESPONSIVE */
     @media (max-width:900px){
-      .hero{grid-template-columns:1fr}
-      .grid{grid-template-columns:1fr}
-      h1{font-size:34px}
-      .brand img{height:34px}
+      .hero-grid{
+        grid-template-columns:1fr;
+        gap:32px;
+      }
+      
+      .hero-content h1{
+        font-size:40px;
+      }
+      
+      .features-grid{
+        grid-template-columns:1fr;
+      }
+      
+      .nav-links{
+        width:100%;
+        justify-content:flex-end;
+      }
+    }
+    
+    @media (max-width:600px){
+      .container{
+        padding:0 16px;
+      }
+      
+      header{
+        padding:20px 0;
+      }
+      
+      .hero{
+        padding:40px 0 30px;
+      }
+      
+      .hero-content h1{
+        font-size:32px;
+      }
+      
+      .cta-group{
+        flex-direction:column;
+      }
+      
+      .btn{
+        width:100%;
+        justify-content:center;
+      }
     }
   </style>
 </head>
+
 <body>
-  <div class="wrap">
-    <header>
-      <div class="brand">
-        <!-- Importante: añade ?v=1 para evitar caché cuando cambies el logo -->
-        <img src="/assets/logo.png?v=1" alt="VASPRATO">
-        <div class="pill">Business Online</div>
-      </div>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo-wrapper">
+          <a href="/" class="logo">VASPRATO</a>
+          <span class="badge">B2B Digital</span>
+        </div>
+        
+        <div class="nav-links">
+          <a href="https://tienda.vasprato.com/" target="_blank" rel="noopener" class="nav-link">Tienda</a>
+          <a href="mailto:contacto@vasprato.com?subject=Consulta%20comercial" class="nav-link primary">Contacto</a>
+        </div>
+      </nav>
+    </div>
+  </header>
 
-      <a class="btn ghost" href="mailto:contacto@vasprato.com?subject=Alta%20como%20proveedor%20-%20VASPRATO">Contacto</a>
-    </header>
-
+  <main>
     <section class="hero">
-      <div class="card">
-        <h1>Vendemos al detal por canales digitales.</h1>
-        <p>
-          En VASPRATO colaboramos con marcas y proveedores para llevar sus productos a clientes finales
-          a través de marketplaces y canales de venta online.
-        </p>
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <h1>Comercio digital profesional para marcas exigentes</h1>
+            <p class="subtitle">
+              Conectamos productos de calidad con canales de venta digitales. 
+              Operación integral en marketplaces y ecommerce con gestión end-to-end.
+            </p>
+            
+            <div class="cta-group">
+              <a href="mailto:contacto@vasprato.com?subject=Alta%20como%20proveedor&body=Hola%20equipo%20VASPRATO,%0D%0A%0D%0AMarca:%20%0D%0AWeb:%20%0D%0ACatálogo:%20%0D%0ATarifa:%20%0D%0ACondiciones:%20%0D%0AContacto:%20%0D%0ATel:%20" class="btn btn-primary">
+                <span>⚡</span> Convertirse en proveedor
+              </a>
+              <a href="#operativa" class="btn btn-secondary">Ver cómo trabajamos</a>
+            </div>
 
-        <div class="cta">
-          <a class="btn primary"
-             href="mailto:contacto@vasprato.com?subject=Alta%20como%20proveedor%20-%20VASPRATO&body=Hola%20equipo%20VASPRATO,%0D%0A%0D%0ASomos%20la%20marca:%20%0D%0AWeb:%20%0D%0ACat%C3%A1logo:%20%0D%0ATarifa:%20%0D%0ACondiciones%20de%20venta:%20%0D%0APersona%20de%20contacto:%20%0D%0ATel%C3%A9fono:%20%0D%0A%0D%0AGracias.">
-            Quiero ser proveedor
-          </a>
+            <div class="spotlight">
+              <div>
+                <div class="spotlight-badge">🛒 Tienda oficial</div>
+                <h3>Acceso directo a catálogo</h3>
+                <p>Compra online en <strong>tienda.vasprato.com</strong></p>
+              </div>
+              <a href="https://tienda.vasprato.com/" target="_blank" rel="noopener" class="btn btn-primary">Visitar tienda</a>
+            </div>
 
-          <a class="btn ghost" href="#como-trabajamos">Cómo trabajamos</a>
+            <div id="storeNotice" class="notice">
+              <strong>⚠️ Tienda en configuración</strong>
+              Si el subdominio aún no responde, puede estar propagándose. 
+              Escríbenos a <a href="mailto:contacto@vasprato.com">contacto@vasprato.com</a>.
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <h2 class="card-title">Información de contacto</h2>
+              <p class="card-subtitle">Para consultas comerciales y tarifas</p>
+            </div>
+
+            <div class="info-row">
+              <span class="info-label">Email</span>
+              <span class="info-value">
+                <a href="mailto:contacto@vasprato.com">contacto@vasprato.com</a>
+              </span>
+            </div>
+
+            <div class="info-row">
+              <span class="info-label">Tel</span>
+              <span class="info-value">
+                <a href="https://wa.me/34672743950" target="_blank" rel="noopener">+34 672 743 950</a>
+              </span>
+            </div>
+
+            <div class="info-row">
+              <span class="info-label">Tienda</span>
+              <span class="info-value">
+                <a href="https://tienda.vasprato.com/" target="_blank" rel="noopener">tienda.vasprato.com</a>
+              </span>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="info-row">
+              <span class="info-label">Sede</span>
+              <span class="info-value">Valencia, España</span>
+            </div>
+
+            <div class="values">
+              <strong>Valores:</strong> Elegancia, honestidad, amor y comunicación
+            </div>
+          </div>
         </div>
-
-        <div class="sep"></div>
-
-        <div class="grid" id="como-trabajamos">
-          <div class="mini">
-            <b>Selección</b>
-            <span>Elegimos productos con demanda real y encaje de marca.</span>
-          </div>
-          <div class="mini">
-            <b>Gestión digital</b>
-            <span>Publicación, contenido, pricing y atención al cliente.</span>
-          </div>
-          <div class="mini">
-            <b>Operación</b>
-            <span>Logística, devoluciones y optimización continua.</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="card">
-        <h2 style="margin:0 0 10px;font-size:18px">Datos de contacto</h2>
-        <p style="margin:0 0 12px">Para propuestas comerciales y tarifas:</p>
-
-        <p style="margin:0">
-          <b>Email:</b>
-          <a href="mailto:contacto@vasprato.com">contacto@vasprato.com</a>
-        </p>
-
-        <p style="margin:6px 0 0">
-          <b>Tel:</b>
-          <a href="https://wa.me/34672743950" target="_blank" rel="noopener">WhatsApp</a>
-        </p>
-
-        <div class="sep"></div>
-
-        <p style="margin:0">Valores: elegancia, honestidad, amor y comunicación.</p>
-        <p style="margin:10px 0 0;color:var(--muted)">*Web informativa. Próximamente más novedades.</p>
       </div>
     </section>
 
-    <footer>
-      <div>© <span id="y"></span> VASPRATO</div>
-      <div>Valencia · España</div>
-    </footer>
-  </div>
+    <section class="features" id="operativa">
+      <div class="container">
+        <h2 class="section-title">Modelo de operación</h2>
+        
+        <div class="features-grid">
+          <div class="feature-card">
+            <span class="feature-icon">🎯</span>
+            <h3 class="feature-title">Selección estratégica</h3>
+            <p class="feature-desc">
+              Análisis de demanda, encaje de marca y potencial comercial antes de cada colaboración.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <span class="feature-icon">⚙️</span>
+            <h3 class="feature-title">Gestión digital</h3>
+            <p class="feature-desc">
+              Publicación optimizada, contenido profesional, pricing dinámico y atención al cliente integral.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <span class="feature-icon">📦</span>
+            <h3 class="feature-title">Operación completa</h3>
+            <p class="feature-desc">
+              Logística, devoluciones, reporting y optimización continua basada en datos reales.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div>© <span id="year"></span> INNOVACION DIGITAL VASPRATO, S.L.</div>
+        <div>Valencia, España</div>
+      </div>
+    </div>
+  </footer>
 
   <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    (function checkStore(){
+      const notice = document.getElementById('storeNotice');
+      const url = 'https://tienda.vasprato.com/';
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 2500);
+
+      fetch(url, { mode: 'no-cors', signal: controller.signal })
+        .then(() => { notice.style.display = 'none'; })
+        .catch(() => { notice.style.display = 'block'; })
+        .finally(() => clearTimeout(timeout));
+    })();
   </script>
 </body>
 </html>
