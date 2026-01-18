@@ -25,13 +25,10 @@
       --text-tertiary:#666;
       --accent:#fff;
       --accent-text:#0a0a0a;
-      --warning-bg:rgba(255,193,7,.06);
-      --warning-border:rgba(255,193,7,.22);
       --gradient-subtle:linear-gradient(180deg,rgba(255,255,255,.03),transparent);
     }
 
     *{box-sizing:border-box;margin:0;padding:0}
-
     html{scroll-behavior:smooth;}
 
     body{
@@ -63,7 +60,14 @@
       z-index:100;
     }
 
-    nav{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+    nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+      flex-wrap:wrap;
+      position:relative; /* ✅ para el dropdown móvil */
+    }
 
     .logo-wrapper{display:flex;align-items:center;gap:16px}
 
@@ -112,6 +116,79 @@
     .nav-link:hover{color:var(--text-primary);background:rgba(255,255,255,.03);border-color:var(--border)}
     .nav-link.primary{background:var(--accent);color:var(--accent-text);border-color:var(--accent)}
     .nav-link.primary:hover{background:rgba(255,255,255,.9)}
+
+    /* ✅ BOTÓN HAMBURGUESA (solo móvil) */
+    .nav-toggle{
+      display:none;
+      width:44px;
+      height:44px;
+      border-radius:12px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.03);
+      color:var(--text-primary);
+      cursor:pointer;
+      align-items:center;
+      justify-content:center;
+      transition:all .2s;
+    }
+    .nav-toggle:hover{
+      border-color:var(--border-hover);
+      background:rgba(255,255,255,.05);
+      transform:translateY(-1px);
+    }
+    .nav-toggle span{
+      font-size:18px;
+      font-weight:900;
+      line-height:1;
+      letter-spacing:-.02em;
+    }
+
+    /* ✅ PANEL DROPDOWN MÓVIL */
+    .mobile-menu{
+      display:none;
+      position:absolute;
+      top:62px;
+      right:0;
+      width:min(260px, calc(100vw - 48px));
+      border:1px solid var(--border);
+      background:rgba(20,20,20,.95);
+      backdrop-filter:blur(14px);
+      border-radius:16px;
+      padding:10px;
+      box-shadow:0 18px 60px rgba(0,0,0,.55);
+    }
+
+    .mobile-menu a{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      padding:12px 14px;
+      border-radius:12px;
+      text-decoration:none;
+      color:rgba(255,255,255,.85);
+      font-weight:800;
+      font-size:14px;
+      border:1px solid transparent;
+      background:rgba(255,255,255,.03);
+      transition:all .2s;
+    }
+    .mobile-menu a:hover{
+      background:rgba(255,255,255,.06);
+      border-color:var(--border);
+    }
+
+    .mobile-menu a.primary{
+      background:var(--accent);
+      color:var(--accent-text);
+      border-color:var(--accent);
+    }
+    .mobile-menu a.primary:hover{
+      background:rgba(255,255,255,.92);
+    }
+
+    /* ✅ cuando esté abierto */
+    nav.menu-open .mobile-menu{display:block;}
 
     .hero{padding:76px 0 48px}
     .hero-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:32px;align-items:start}
@@ -162,14 +239,14 @@
     .feature-title{font-size:15px;font-weight:900;margin-bottom:6px}
     .feature-desc{color:rgba(255,255,255,.72);font-size:14px;line-height:1.55}
 
-    /* ✅ FOOTER CONTACTO (barra única estilizada) */
+    /* ✅ FOOTER CONTACTO (barra única) + legal pequeño */
     footer{
       border-top:1px solid var(--border);
       background:rgba(0,0,0,.55);
       backdrop-filter: blur(10px);
     }
 
-    .footer-wrap{padding:22px 0 26px}
+    .footer-wrap{padding:22px 0 18px}
 
     .footer-contactbar{
       display:flex;
@@ -263,26 +340,57 @@
       font-size:12px;
     }
 
-    .footer-mini{
-      margin-top:10px;
+    /* ✅ Legal pequeño abajo */
+    .footer-legalbar{
+      margin-top:12px;
+      padding-top:12px;
+      border-top:1px solid var(--border);
       display:flex;
-      justify-content:space-between;
-      gap:12px;
       flex-wrap:wrap;
-      color:rgba(255,255,255,.48);
+      gap:10px 14px;
+      align-items:center;
+      justify-content:space-between;
+      color:rgba(255,255,255,.45);
       font-size:12px;
     }
 
-    .footer-mini b{
-      color:rgba(255,255,255,.65);
-      font-weight:800;
+    .footer-legalbar .links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px 14px;
+      align-items:center;
     }
 
+    .footer-legalbar a{
+      color:rgba(255,255,255,.68);
+      text-decoration:none;
+      border-bottom:1px solid rgba(255,255,255,.14);
+      transition:all .2s;
+    }
+
+    .footer-legalbar a:hover{
+      color:#fff;
+      border-bottom-color:#fff;
+    }
+
+    .footer-copy{
+      color:rgba(255,255,255,.45);
+      font-size:12px;
+      white-space:nowrap;
+    }
+
+    /* ✅ RESPONSIVE */
     @media (max-width:900px){
       .hero-grid{grid-template-columns:1fr;gap:22px}
       .hero-content h1{font-size:40px}
       .features-grid{grid-template-columns:1fr}
+
+      /* ✅ En móvil ocultamos links normal y usamos hamburguesa */
+      .nav-links{display:none;}
+      .nav-toggle{display:inline-flex;}
+
       nav{gap:12px}
+
       .footer-contactbar{
         flex-direction:column;
         align-items:stretch;
@@ -291,6 +399,7 @@
       .footer-contact-right{
         justify-content:flex-start;
       }
+      .footer-copy{white-space:normal}
     }
 
     @media (max-width:600px){
@@ -307,7 +416,7 @@
   <div class="page">
     <header>
       <div class="container">
-        <nav>
+        <nav id="mainNav">
           <div class="logo-wrapper">
             <a href="/" class="logo-link" aria-label="VASPRATO" id="logoLink">
               <img class="logo-img invert" src="/assets/logo.png?v=2" alt="VASPRATO" id="logoImg" />
@@ -316,9 +425,25 @@
             <span class="badge">B2B Digital</span>
           </div>
 
+          <!-- ✅ Menú normal (PC) -->
           <div class="nav-links">
             <a href="https://tienda.vasprato.com/" target="_blank" rel="noopener" class="nav-link">Tienda</a>
             <a href="#contacto" class="nav-link primary">Contacto</a>
+          </div>
+
+          <!-- ✅ Botón hamburguesa (Móvil) -->
+          <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
+            <span>☰</span>
+          </button>
+
+          <!-- ✅ Dropdown móvil -->
+          <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+            <a href="https://tienda.vasprato.com/" target="_blank" rel="noopener">
+              🛒 <span>Tienda</span>
+            </a>
+            <a href="#contacto" class="primary">
+              📩 <span>Contacto</span>
+            </a>
           </div>
         </nav>
       </div>
@@ -398,7 +523,7 @@
       </section>
     </main>
 
-    <!-- ✅ FOOTER SOLO CONTACTO (barra única alargada) -->
+    <!-- ✅ FOOTER: CONTACTO + LEGAL -->
     <footer id="contacto">
       <div class="container footer-wrap">
 
@@ -429,9 +554,14 @@
           </div>
         </div>
 
-        <div class="footer-mini">
-          <div>© 2024 <b>INNOVACION DIGITAL VASPRATO, S.L.</b></div>
-          <div><b>Domicilio:</b> Guardia Civil 22, esc 4, piso 2, puerta 5</div>
+        <div class="footer-legalbar">
+          <div class="links">
+            <a href="/legal.html">Aviso legal</a>
+            <a href="/privacidad.html">Privacidad</a>
+            <a href="/cookies.html">Cookies</a>
+            <a href="#" id="cookieSettingsLink">Configurar cookies</a>
+          </div>
+          <div class="footer-copy">© 2024 INNOVACION DIGITAL VASPRATO, S.L.</div>
         </div>
 
       </div>
@@ -443,6 +573,58 @@
         const img = document.getElementById('logoImg');
         const link = document.getElementById('logoLink');
         img.addEventListener('error', () => link.classList.add('noimg'));
+      })();
+
+      // ✅ Menú móvil: abrir/cerrar (hamburguesa)
+      (function(){
+        const nav = document.getElementById('mainNav');
+        const toggle = document.getElementById('navToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        function closeMenu(){
+          nav.classList.remove('menu-open');
+          toggle.setAttribute('aria-expanded', 'false');
+          mobileMenu.setAttribute('aria-hidden', 'true');
+          toggle.querySelector('span').textContent = '☰';
+        }
+
+        function openMenu(){
+          nav.classList.add('menu-open');
+          toggle.setAttribute('aria-expanded', 'true');
+          mobileMenu.setAttribute('aria-hidden', 'false');
+          toggle.querySelector('span').textContent = '✕';
+        }
+
+        toggle.addEventListener('click', function(){
+          const isOpen = nav.classList.contains('menu-open');
+          if(isOpen) closeMenu();
+          else openMenu();
+        });
+
+        // ✅ Cierra al tocar un link del menú móvil
+        mobileMenu.querySelectorAll('a').forEach(a => {
+          a.addEventListener('click', () => closeMenu());
+        });
+
+        // ✅ Cierra si tocas fuera
+        document.addEventListener('click', function(e){
+          const isOpen = nav.classList.contains('menu-open');
+          if(!isOpen) return;
+
+          const clickedInside = nav.contains(e.target);
+          if(!clickedInside) closeMenu();
+        });
+
+        // ✅ Cierra con ESC
+        document.addEventListener('keydown', function(e){
+          if(e.key === 'Escape') closeMenu();
+        });
+
+        // Placeholder panel cookies (futuro)
+        document.getElementById('cookieSettingsLink').addEventListener('click', function(e){
+          e.preventDefault();
+          alert('⚙️ Próximamente: panel de configuración de cookies.');
+        });
       })();
     </script>
   </div>
