@@ -32,6 +32,8 @@
 
     *{box-sizing:border-box;margin:0;padding:0}
 
+    html{scroll-behavior:smooth;}
+
     body{
       font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
       background:var(--bg-primary);
@@ -147,20 +149,6 @@
     .card h2{font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.65);margin-bottom:10px}
     .card p{color:rgba(255,255,255,.78);font-size:14px;line-height:1.65}
 
-    .spotlight{
-      margin-top:16px;padding:18px;border-radius:16px;border:1px solid var(--border);
-      background:rgba(255,255,255,.02);
-      display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap
-    }
-    .spotlight strong{color:#fff}
-    .spotlight small{color:rgba(255,255,255,.68)}
-    .notice{
-      display:none;margin-top:16px;padding:14px 16px;border-radius:14px;
-      border:1px solid var(--warning-border);background:var(--warning-bg);font-size:14px;color:rgba(255,255,255,.8)
-    }
-    .notice a{color:#fff;font-weight:800;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.25)}
-    .notice a:hover{border-bottom-color:#fff}
-
     .features{padding:54px 0 64px}
     .section-title{font-size:28px;font-weight:900;margin-bottom:26px;text-align:center;letter-spacing:-.02em}
 
@@ -174,78 +162,135 @@
     .feature-title{font-size:15px;font-weight:900;margin-bottom:6px}
     .feature-desc{color:rgba(255,255,255,.72);font-size:14px;line-height:1.55}
 
-    /* ✅ FOOTER real */
+    /* ✅ FOOTER CONTACTO (barra única estilizada) */
     footer{
       border-top:1px solid var(--border);
       background:rgba(0,0,0,.55);
       backdrop-filter: blur(10px);
     }
 
-    .footer-wrap{padding:28px 0}
-    .footer-top{
-      display:grid;
-      grid-template-columns: 1.2fr 1fr 1fr;
+    .footer-wrap{padding:22px 0 26px}
+
+    .footer-contactbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
       gap:18px;
-      align-items:start;
-      margin-bottom:18px;
-    }
-
-    .footer-box{
-      background:rgba(255,255,255,.03);
+      padding:18px 18px;
+      border-radius:18px;
       border:1px solid var(--border);
-      border-radius:16px;
-      padding:16px;
+      background:
+        radial-gradient(1000px 220px at 20% 0%, rgba(255,255,255,.08), transparent 55%),
+        radial-gradient(800px 220px at 85% 10%, rgba(255,255,255,.06), transparent 52%),
+        rgba(255,255,255,.03);
+      position:relative;
+      overflow:hidden;
     }
 
-    .footer-box h3{
-      font-size:13px;
+    .footer-contactbar::before{
+      content:"";
+      position:absolute;
+      top:0;left:0;right:0;
+      height:1px;
+      background:var(--gradient-subtle);
+    }
+
+    .footer-contact-left{
+      display:flex;
+      align-items:flex-start;
+      gap:14px;
+      min-width:280px;
+    }
+
+    .footer-badge{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:44px;height:44px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.04);
+      font-size:20px;
+    }
+
+    .footer-contact-title{
+      font-weight:900;
+      font-size:14px;
       letter-spacing:.08em;
       text-transform:uppercase;
       color:rgba(255,255,255,.7);
-      margin-bottom:10px;
+      margin-bottom:6px;
     }
 
-    .footer-line{color:rgba(255,255,255,.78);font-size:14px;margin:6px 0}
-    .footer-line a{color:#fff;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.22)}
-    .footer-line a:hover{border-bottom-color:#fff}
+    .footer-contact-sub{
+      color:rgba(255,255,255,.68);
+      font-size:13px;
+      line-height:1.35;
+    }
 
-    .footer-legalbar{
+    .footer-contact-right{
       display:flex;
-      flex-wrap:wrap;
-      gap:10px 16px;
-      padding-top:14px;
-      border-top:1px solid var(--border);
-      color:rgba(255,255,255,.55);
-      font-size:13px;
       align-items:center;
-      justify-content:space-between;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
     }
 
-    .footer-legalbar .links{
-      display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center
-    }
-
-    .footer-legalbar a{
-      color:rgba(255,255,255,.78);
+    .footer-pill{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.03);
+      color:rgba(255,255,255,.85);
       text-decoration:none;
-      border-bottom:1px solid rgba(255,255,255,.18);
-    }
-    .footer-legalbar a:hover{color:#fff;border-bottom-color:#fff}
-
-    .footer-copy{
-      color:rgba(255,255,255,.55);
+      font-weight:800;
       font-size:13px;
-      text-align:right;
-      white-space:nowrap;
+      transition:all .2s;
+    }
+
+    .footer-pill:hover{
+      border-color:var(--border-hover);
+      transform:translateY(-1px);
+      background:rgba(255,255,255,.05);
+    }
+
+    .footer-pill small{
+      font-weight:700;
+      color:rgba(255,255,255,.65);
+      font-size:12px;
+    }
+
+    .footer-mini{
+      margin-top:10px;
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+      color:rgba(255,255,255,.48);
+      font-size:12px;
+    }
+
+    .footer-mini b{
+      color:rgba(255,255,255,.65);
+      font-weight:800;
     }
 
     @media (max-width:900px){
       .hero-grid{grid-template-columns:1fr;gap:22px}
       .hero-content h1{font-size:40px}
       .features-grid{grid-template-columns:1fr}
-      .footer-top{grid-template-columns:1fr}
-      .footer-copy{text-align:left;white-space:normal}
       nav{gap:12px}
+      .footer-contactbar{
+        flex-direction:column;
+        align-items:stretch;
+        gap:14px;
+      }
+      .footer-contact-right{
+        justify-content:flex-start;
+      }
     }
 
     @media (max-width:600px){
@@ -296,20 +341,6 @@
                   ⚡ Convertirse en proveedor
                 </a>
                 <a href="#operativa" class="btn btn-secondary">Ver cómo trabajamos</a>
-              </div>
-
-              <div class="spotlight">
-                <div>
-                  <div style="font-weight:900">🛒 Tienda oficial</div>
-                  <small>Acceso directo a catálogo: <strong>tienda.vasprato.com</strong></small>
-                </div>
-                <a href="https://tienda.vasprato.com/" target="_blank" rel="noopener" class="btn btn-primary">Visitar tienda</a>
-              </div>
-
-              <div id="storeNotice" class="notice">
-                <strong>⚠️ Tienda en configuración</strong><br/>
-                Si el subdominio aún no responde, puede estar propagándose DNS/SSL.
-                Escríbenos a <a href="mailto:contacto@vasprato.com">contacto@vasprato.com</a>.
               </div>
             </div>
 
@@ -367,45 +398,42 @@
       </section>
     </main>
 
-    <!-- ✅ FOOTER REAL ABAJO -->
+    <!-- ✅ FOOTER SOLO CONTACTO (barra única alargada) -->
     <footer id="contacto">
       <div class="container footer-wrap">
-        <div class="footer-top">
-          <div class="footer-box">
-            <h3>Contacto</h3>
-            <div class="footer-line"><b>Email:</b> <a href="mailto:contacto@vasprato.com">contacto@vasprato.com</a></div>
-            <div class="footer-line"><b>WhatsApp:</b> <a href="https://wa.me/34672743950" target="_blank" rel="noopener">+34 672 743 950</a></div>
-            <div class="footer-line"><b>Sede:</b> Valencia, España</div>
+
+        <div class="footer-contactbar">
+          <div class="footer-contact-left">
+            <div class="footer-badge">📩</div>
+            <div>
+              <div class="footer-contact-title">Contacto</div>
+              <div class="footer-contact-sub">
+                Escríbenos y te respondemos rápido.<br/>
+                Soporte y acuerdos B2B en España y Europa.
+              </div>
+            </div>
           </div>
 
-          <div class="footer-box">
-            <h3>Empresa</h3>
-            <div class="footer-line"><b>Razón social:</b> INNOVACION DIGITAL VASPRATO, S.L.</div>
-            <div class="footer-line"><b>CIF:</b> <span id="cifValue">PENDIENTE_DE_AÑADIR</span></div>
-            <div class="footer-line"><b>Domicilio:</b> Guardia Civil 22, esc 4, piso 2, puerta 5, Valencia, España</div>
-          </div>
+          <div class="footer-contact-right">
+            <a class="footer-pill" href="mailto:contacto@vasprato.com">
+              ✉️ <span>contacto@vasprato.com</span>
+            </a>
 
-          <div class="footer-box">
-            <h3>Tienda</h3>
-            <div class="footer-line">Acceso directo a catálogo:</div>
-            <div class="footer-line">
-              <a href="https://tienda.vasprato.com/" target="_blank" rel="noopener">tienda.vasprato.com</a>
-            </div>
-            <div class="footer-line" style="color:rgba(255,255,255,.6);font-size:13px;margin-top:8px">
-              *Si no responde, puede estar propagándose DNS/SSL.
-            </div>
+            <a class="footer-pill" href="https://wa.me/34672743950" target="_blank" rel="noopener">
+              💬 <span>WhatsApp</span> <small>+34 672 743 950</small>
+            </a>
+
+            <a class="footer-pill" href="https://maps.google.com/?q=Guardia%20Civil%2022%2C%20Valencia%2C%20Espa%C3%B1a" target="_blank" rel="noopener">
+              📍 <span>Valencia, España</span>
+            </a>
           </div>
         </div>
 
-        <div class="footer-legalbar">
-          <div class="links">
-            <a href="/legal.html">Aviso legal</a>
-            <a href="/privacidad.html">Privacidad</a>
-            <a href="/cookies.html">Cookies</a>
-            <a href="#" id="cookieSettingsLink">Configurar cookies</a>
-          </div>
-          <div class="footer-copy">© 2024 INNOVACION DIGITAL VASPRATO, S.L.</div>
+        <div class="footer-mini">
+          <div>© 2024 <b>INNOVACION DIGITAL VASPRATO, S.L.</b></div>
+          <div><b>Domicilio:</b> Guardia Civil 22, esc 4, piso 2, puerta 5</div>
         </div>
+
       </div>
     </footer>
 
@@ -416,25 +444,6 @@
         const link = document.getElementById('logoLink');
         img.addEventListener('error', () => link.classList.add('noimg'));
       })();
-
-      // Aviso suave si la tienda no responde (DNS/SSL)
-      (function checkStore(){
-        const notice = document.getElementById('storeNotice');
-        const url = 'https://tienda.vasprato.com/';
-        const controller = new AbortController();
-        const timeout = setTimeout(() => controller.abort(), 2500);
-
-        fetch(url, { mode: 'no-cors', signal: controller.signal })
-          .then(() => { notice.style.display = 'none'; })
-          .catch(() => { notice.style.display = 'block'; })
-          .finally(() => clearTimeout(timeout));
-      })();
-
-      // Placeholder para futuro modal/banner cookies
-      document.getElementById('cookieSettingsLink').addEventListener('click', function(e){
-        e.preventDefault();
-        alert('⚙️ Próximamente: panel de configuración de cookies.');
-      });
     </script>
   </div>
 </body>
